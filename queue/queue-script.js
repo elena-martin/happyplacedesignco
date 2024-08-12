@@ -98,25 +98,7 @@ function registerSong() {
 	if (registerName !== "") {
 		console.log(registerName)
 		console.log("Success")
-		submitError = false;
-		registration = false;
-		songInfo.children[5].value = ""
-		//console.log(newTitle + ", " + newArtist)
-		queueItems.push(newTitle + ", " + newArtist)
-		queuePerformers.push(registerName)
-		let itemCount = queueItems.length;
-		console.log(queueItems[itemCount - 1])
-		console.log(queuePerformers[itemCount - 1])
-		displayQueue();
-		loadList();
-		console.log(forminfo)
-		//itemTitle.parentNode.removeChild(itemTitle);
-		//itemArtist.parentNode.removeChild(itemArtist);
-		if (submitError == false){
-			songInfo.replaceChild(brk, document.getElementById('err'))
-			songInfo.children[7].style.marginTop = "20px";
-		}
-		
+
 		const form = document.querySelector("#song-info");
 
 		async function sendData() {
@@ -140,6 +122,26 @@ function registerSong() {
 			event.preventDefault();
 			sendData();
 		  });
+
+		submitError = false;
+		registration = false;
+		songInfo.children[5].value = ""
+		//console.log(newTitle + ", " + newArtist)
+		queueItems.push(newTitle + ", " + newArtist)
+		queuePerformers.push(registerName)
+		let itemCount = queueItems.length;
+		console.log(queueItems[itemCount - 1])
+		console.log(queuePerformers[itemCount - 1])
+		displayQueue();
+		loadList();
+		console.log(forminfo)
+		//itemTitle.parentNode.removeChild(itemTitle);
+		//itemArtist.parentNode.removeChild(itemArtist);
+		if (submitError == false){
+			songInfo.replaceChild(brk, document.getElementById('err'))
+			songInfo.children[7].style.marginTop = "20px";
+		}
+		
 		
 	} else {
 		console.log("Fail")

@@ -38,7 +38,7 @@ async function sendData() {
   const formData = new FormData(form);
 
   try {
-    const response = await fetch("https://example.org/post", {
+    const response = await fetch("https://projects.happyplacedesign.co/queue/", {
       method: "POST",
       // Set the FormData instance as the request body
       body: formData,

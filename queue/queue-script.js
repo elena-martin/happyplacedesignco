@@ -33,28 +33,6 @@ const queueDiv = document.getElementById('queue')
 
 const form = document.querySelector("#song-info");
 
-async function sendData() {
-  // Associate the FormData object with the form element
-  const formData = new FormData(form);
-
-  try {
-    const response = await fetch("https://projects.happyplacedesign.co/queue/", {
-      method: "POST",
-      // Set the FormData instance as the request body
-      body: formData,
-    });
-    console.log(await response.json());
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-// Take over form submission
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  sendData();
-});
-
 
 function openRegistration(){
 	lightbox.style.display = "block";
@@ -142,26 +120,26 @@ function registerSong() {
 		const form = document.querySelector("#song-info");
 
 		async function sendData() {
-		// Associate the FormData object with the form element
-		const formData = new FormData(form);
-
-		try {
-			const response = await fetch("https://projects.happyplacedesign.co", {
-			method: "POST",
-			// Set the FormData instance as the request body
-			body: formData,
-			});
-			console.log(await response.json());
-		} catch (e) {
-			console.error(e);
-		}
-		}
-
-		// Take over form submission
-		form.addEventListener("submit", (event) => {
-		event.preventDefault();
-		sendData();
-		});
+			// Associate the FormData object with the form element
+			const formData = new FormData(form);
+		  
+			try {
+			  const response = await fetch("https://projects.happyplacedesign.co/queue/", {
+				method: "POST",
+				// Set the FormData instance as the request body
+				body: formData,
+			  });
+			  console.log(await response.json());
+			} catch (e) {
+			  console.error(e);
+			}
+		  }
+		  
+		  // Take over form submission
+		  form.addEventListener("submit", (event) => {
+			event.preventDefault();
+			sendData();
+		  });
 		
 	} else {
 		console.log("Fail")

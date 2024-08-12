@@ -31,10 +31,29 @@ let queuePerformers = []
 
 const queueDiv = document.getElementById('queue')
 
-let songForm = document.getElementById('song-info')
-var getForm = document.forms.songInfo
-var formData = new FormData(getForm);
-var forminfo = formData.get('name-input')
+const form = document.querySelector("#song-info");
+
+async function sendData() {
+  // Associate the FormData object with the form element
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("https://example.org/post", {
+      method: "POST",
+      // Set the FormData instance as the request body
+      body: formData,
+    });
+    console.log(await response.json());
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// Take over form submission
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  sendData();
+});
 
 
 function openRegistration(){

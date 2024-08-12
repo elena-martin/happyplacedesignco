@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+	<title>Queue</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./queue-styles.css"/>
+</head>
+<body onload="loadList()">
+	<div id="lightbox">
+		<form action="" method="post" id="song-info" id="songInfo" name="songInfo">
+			<span onclick="closeRegistration()"><a>X</a></span>
+			<h1>Add to Song Queue</h1>
+			<h2 id="selected-item"></h2>
+			<h3 id="selected-artist"></h3>
+			<p>To add this item to the queue, enter your name below.</p>
+			<input type="text" id="name" name="name-input">
+			<br>
+			<input type="submit" value="submit" id="add-song" onclick="registerSong()">
+		</form>
+	</div>
+	
+	<div id="queue">
+	</div>
+	
+	<table id="item-table">
+		<div id="search-box">
+			<h2>Search by Title or Artist</h2>
+			<input type="text">
+			<button id="search" onclick="searchItems()">Search</button>
+			<p>Search Term:</p>
+		</div>
+		
+	  <tr id="table-header">
+		<th>Title</th>
+		<th>Artist</th>
+	  </tr>
+	  <tr class="item">
+		<td>Item 1</td>
+		<td>Artist 1</td>
+	  </tr>
+	  <tr class="item">
+		<td>Item 2</td>
+		<td>Artist 2</td>
+	  </tr>
+	  <tr class="item">
+		<td>Item 3</td>
+		<td>Artist 3</td>
+	  </tr>
+	  <tr class="item">
+		<td>Item 4</td>
+		<td>Artist 4</td>
+	  </tr>
+	</table>
+	
+	<script src="queue-script.js"></script>
+</body>

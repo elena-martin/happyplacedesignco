@@ -99,29 +99,19 @@ function registerSong() {
 		console.log(registerName)
 		console.log("Success")
 
-		const form = document.querySelector("#song-info");
+		const send = document.querySelector("#add-song");
 
-		async function sendData() {
-			// Associate the FormData object with the form element
-			const formData = new FormData(form);
-		  
-			try {
-			  const response = await fetch("https://projects.happyplacedesign.co/queue/", {
+		send.addEventListener("click", async () => {
+			// A <form> elemento
+			const userInfo = document.querySelector("#song-info");
+			const formData = new FormData(userInfo);
+
+			const response = await fetch("https://projects.happyplacedesign.co/queue", {
 				method: "POST",
-				// Set the FormData instance as the request body
 				body: formData,
-			  });
-			  console.log(await response.json());
-			} catch (e) {
-			  console.error(e);
-			}
-		  }
-		  
-		  // Take over form submission
-		  form.addEventListener("submit", (event) => {
-			event.preventDefault();
-			sendData();
-		  });
+			});
+			console.log(await response.json());
+		});
 
 		submitError = false;
 		registration = false;
@@ -132,9 +122,9 @@ function registerSong() {
 		let itemCount = queueItems.length;
 		console.log(queueItems[itemCount - 1])
 		console.log(queuePerformers[itemCount - 1])
-		displayQueue();
-		loadList();
-		console.log(forminfo)
+		//displayQueue();
+		//loadList();
+		//console.log(forminfo)
 		//itemTitle.parentNode.removeChild(itemTitle);
 		//itemArtist.parentNode.removeChild(itemArtist);
 		if (submitError == false){
